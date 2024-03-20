@@ -18,10 +18,10 @@ public class WinOutput {
     public void Print() {
         int i;
         for (i = 3; i < 6; i++) {
-            System.out.println(i + "개 일치 (" + numberFormat.format(WinPrice[i]) + ") - " + correctCounts[i] + "개");
+            System.out.println(i + "개 일치 (" + numberFormat.format(WinPrice[i]) + "원) - " + correctCounts[i] + "개");
         }
-        System.out.println(i + "개 일치, 보너스 볼 일치 (" + numberFormat.format(WinPrice[7]) + ") - " + correctCounts[6] + "개");
-        System.out.println(i + "개 일치 (" + numberFormat.format(WinPrice[6]) + ") - " + correctCounts[7] + "개");
+        System.out.println(i - 1 + "개 일치, 보너스 볼 일치 (" + numberFormat.format(WinPrice[6]) + "원) - " + correctCounts[7] + "개");
+        System.out.println(i + "개 일치 (" + numberFormat.format(WinPrice[7]) + "원) - " + correctCounts[6] + "개");
     }
 
     public int[] getWinPrice() {

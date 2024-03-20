@@ -1,6 +1,8 @@
 package lotto.IO.input;
 
-import camp.nextstep.edu.missionutils.Console;
+import lotto.Console;
+
+//import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
 import java.util.List;

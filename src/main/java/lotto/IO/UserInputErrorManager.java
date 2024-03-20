@@ -27,7 +27,7 @@ public class UserInputErrorManager {
 
     public static Lotto checkLotto() {
         System.out.println();
-        System.out.println("당첨 번호를 입력해 주세요");
+        System.out.println("당첨 번호를 입력해 주세요.");
 
         Lotto lotto;
         while (true) {
@@ -44,7 +44,7 @@ public class UserInputErrorManager {
 
     public static Bonus checkBonus(Lotto lotto) {
         System.out.println();
-        System.out.println("보너스 번호를 입력해 주세요");
+        System.out.println("보너스 번호를 입력해 주세요.");
 
         int number;
         Bonus bonus;

@@ -4,8 +4,8 @@ public class Rate {
 
     private final double rate;
 
-    public Rate(int price, int beneift) {
-        this.rate = ((double) (beneift / price) * 100);
+    public Rate(double price, double benefit) {
+        this.rate = (benefit / price) * 100;
     }
 
     public double getRate() {

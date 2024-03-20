@@ -16,7 +16,7 @@ public class Info {
         System.out.println("보너스 번호를 입력해 주세요.");
     }
 
-    public void Statistics() {
+    public static void Statistics() {
         System.out.println();
         System.out.println("당첨 통계");
         System.out.println("---");

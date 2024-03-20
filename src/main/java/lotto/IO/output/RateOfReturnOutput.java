@@ -2,10 +2,10 @@ package lotto.IO.output;
 
 public class RateOfReturnOutput {
 
-    private final double rate;
+    private final String rate;
 
     public RateOfReturnOutput(double rate) {
-        this.rate = Math.round(rate);
+        this.rate = String.format("%.1f", rate);
     }
 
     public void Print() {
