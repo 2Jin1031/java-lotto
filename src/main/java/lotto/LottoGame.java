@@ -16,8 +16,8 @@ public class LottoGame {
         LottoTicket lottoTicket = UserInputErrorManager.checkAmount();
 
         Quantity quantity = new Quantity(lottoTicket.getLottoPrice());
-        Random random = new Random(quantity.getQuantity());
-        LottoOutput lottoOutput = new LottoOutput(quantity.getQuantity(), random.getNumbers());
+        LottoNumberGenerator lottoNumberGenerator = new LottoNumberGenerator(quantity.getQuantity());
+        LottoOutput lottoOutput = new LottoOutput(quantity.getQuantity(), lottoNumberGenerator.getLottoNumbers());
         lottoOutput.PrintInfo();
         lottoOutput.PrintLottos();
 
@@ -29,7 +29,7 @@ public class LottoGame {
         Info.Statistics();
 
         Win win = new Win(quantity.getQuantity());
-        win.Count(lotto.getNumbers(), bonus.getBonus(), random.getNumbers());
+        win.Count(lotto.getNumbers(), bonus.getBonus(), lottoNumberGenerator.getLottoNumbers());
         WinOutput winOutput = new WinOutput(win.getCorrectCounts());
         winOutput.Print();
 
