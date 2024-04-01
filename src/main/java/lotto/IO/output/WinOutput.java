@@ -1,7 +1,6 @@
 package lotto.IO.output;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
 
 public class WinOutput {
 

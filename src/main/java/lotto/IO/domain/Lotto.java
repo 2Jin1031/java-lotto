@@ -3,6 +3,7 @@ package lotto.IO.domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Lotto {
     private final List<Integer> numbers;
@@ -34,12 +35,9 @@ public class Lotto {
     }
 
     private static void numbersDuplicate(List<Integer> numbers) {
-        List<Integer> sortNumbers = new ArrayList<>(numbers);
-        Collections.sort(sortNumbers);
-        for (int i = 0; i < sortNumbers.size() - 1; i++) {
-            if (sortNumbers.get(i).equals(sortNumbers.get(i + 1))) {
-                throw new IllegalArgumentException("로또 번호는 모두 다른 숫자여야 합니다");
-            }
+        List<Integer> uniqueList = numbers.stream().distinct().toList();
+        if (uniqueList.size() != 6) {
+            throw new IllegalArgumentException("[ERROR] 로또 번호는 중복되지 않는 숫자여야 합니다.");
         }
     }
 
