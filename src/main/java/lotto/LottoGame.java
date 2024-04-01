@@ -38,9 +38,9 @@ public class LottoGame {
         // test print
 //        System.out.println("reward.getReward() = " + reward.getReward());
 
-        Rate rate = new Rate(lottoTicket.getLottoPrice(), reward.getReward());
+        LottoRate lottoRate = new LottoRate(lottoTicket.getLottoPrice(), reward.getReward());
 
-        RateOfReturnOutput rateOfReturnOutput = new RateOfReturnOutput(rate.getRate());
+        RateOfReturnOutput rateOfReturnOutput = new RateOfReturnOutput(lottoRate.getRate());
         rateOfReturnOutput.Print();
 
     }
