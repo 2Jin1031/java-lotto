@@ -1,12 +1,7 @@
 package lotto.IO.input;
 
-import camp.nextstep.edu.missionutils.Console;
 import lotto.IO.domain.Lotto;
-import lotto.IO.info.Info;
-
 import java.util.List;
-
-import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Bonus {
 
@@ -20,7 +15,6 @@ public class Bonus {
     private void validate(int bonus, Lotto lotto) {
         duplicatedwithLotto(bonus, lotto);
         numberRangeCheck(bonus);
-
     }
 
     private static void numberRangeCheck(int bonus) {
@@ -35,7 +29,6 @@ public class Bonus {
             throw new IllegalArgumentException("[ERROR] 보너스 번호는 로또 번호와 다른 숫자여야 합니다.");
         }
     }
-
 
     public int getBonus() {
         return bonus;

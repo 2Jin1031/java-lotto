@@ -1,6 +1,5 @@
 package lotto.IO.output;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LottoOutput {

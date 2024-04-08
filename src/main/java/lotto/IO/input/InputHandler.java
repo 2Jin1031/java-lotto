@@ -1,14 +1,11 @@
 package lotto.IO.input;
 
 import lotto.Console;
-
-//import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class InputHandler {
-    public static Integer getUserInputAmount() throws IllegalArgumentException{
+    public static Integer getUserInputAmount() throws IllegalArgumentException {
 
         String input = Console.readLine();
         int amount;
@@ -20,7 +17,7 @@ public class InputHandler {
         return amount;
     }
 
-    public static List<Integer> getUserInputlotto() throws IllegalArgumentException{
+    public static List<Integer> getUserInputlotto() throws IllegalArgumentException {
 
         String input = Console.readLine();
 
@@ -38,7 +35,7 @@ public class InputHandler {
         return lottoNums;
     }
 
-    public static Integer getUserInputBonus() throws IllegalArgumentException{
+    public static Integer getUserInputBonus() throws IllegalArgumentException {
 
         String input = Console.readLine();
         int bonus;

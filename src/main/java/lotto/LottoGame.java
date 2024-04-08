@@ -25,7 +25,6 @@ public class LottoGame {
 
         Bonus bonus = UserInputErrorManager.checkBonus(lotto);
 
-
         Info.Statistics();
 
         Win win = new Win(quantity.getQuantity());
@@ -35,13 +34,9 @@ public class LottoGame {
 
         Reward reward = new Reward(winOutput.getWinPrice(), win.getCorrectCounts());
 
-        // test print
-//        System.out.println("reward.getReward() = " + reward.getReward());
-
         LottoRate lottoRate = new LottoRate(lottoTicket.getLottoPrice(), reward.getReward());
 
         RateOfReturnOutput rateOfReturnOutput = new RateOfReturnOutput(lottoRate.getRate());
         rateOfReturnOutput.Print();
-
     }
 }

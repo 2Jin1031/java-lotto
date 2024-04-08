@@ -1,11 +1,10 @@
 package lotto.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Win {
 
-    private final int [] correctCounts;
+    private final int[] correctCounts;
     private final int lottoSize;
 
     public Win(int lottoSize) {

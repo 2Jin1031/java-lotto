@@ -1,9 +1,6 @@
 package lotto.IO.input;
 
-import lotto.IO.info.Info;
-
-public class
-LottoTicket {
+public class LottoTicket {
 
     private final int lottoPrice;
 
