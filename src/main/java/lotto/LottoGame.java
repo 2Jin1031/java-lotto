@@ -18,8 +18,8 @@ public class LottoGame {
         Quantity quantity = new Quantity(lottoTicket.getLottoPrice());
         LottoNumberGenerator lottoNumberGenerator = new LottoNumberGenerator(quantity.getQuantity());
         LottoOutput lottoOutput = new LottoOutput(quantity.getQuantity(), lottoNumberGenerator.getLottoNumbers());
-        lottoOutput.PrintInfo();
-        lottoOutput.PrintLottos();
+        lottoOutput.printInfo();
+        lottoOutput.printLottos();
 
         Lotto lotto = UserInputErrorManager.checkLotto();
 
@@ -28,15 +28,15 @@ public class LottoGame {
         Info.Statistics();
 
         Win win = new Win(quantity.getQuantity());
-        win.Count(lotto.getNumbers(), bonus.getBonus(), lottoNumberGenerator.getLottoNumbers());
+        win.count(lotto.getNumbers(), bonus.getBonus(), lottoNumberGenerator.getLottoNumbers());
         WinOutput winOutput = new WinOutput(win.getCorrectCounts());
-        winOutput.Print();
+        winOutput.print();
 
         Reward reward = new Reward(winOutput.getWinPrice(), win.getCorrectCounts());
 
         LottoRate lottoRate = new LottoRate(lottoTicket.getLottoPrice(), reward.getReward());
 
         RateOfReturnOutput rateOfReturnOutput = new RateOfReturnOutput(lottoRate.getRate());
-        rateOfReturnOutput.Print();
+        rateOfReturnOutput.print();
     }
 }

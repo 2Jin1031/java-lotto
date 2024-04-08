@@ -8,7 +8,7 @@ public class RateOfReturnOutput {
         this.rate = String.format("%.1f", rate);
     }
 
-    public void Print() {
+    public void print() {
         System.out.println("총 수익률은 " + rate + "%입니다.");
     }
 }

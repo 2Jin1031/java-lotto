@@ -12,7 +12,7 @@ public class Win {
         this.correctCounts = new int[8];
     }
 
-    public void Count(List<Integer> wins, int bonus, List<List<Integer>> lottos) {
+    public void count(List<Integer> wins, int bonus, List<List<Integer>> lottos) {
         for (int i = 0; i < lottoSize; i++) {
             int count = 0, bonusCount = 0;
             for (int j = 0; j < 6; j++) {

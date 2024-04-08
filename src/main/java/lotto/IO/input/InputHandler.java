@@ -17,7 +17,7 @@ public class InputHandler {
         return amount;
     }
 
-    public static List<Integer> getUserInputlotto() throws IllegalArgumentException {
+    public static List<Integer> getUserInputLotto() throws IllegalArgumentException {
 
         String input = Console.readLine();
 

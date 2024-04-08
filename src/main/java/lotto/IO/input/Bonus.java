@@ -13,7 +13,7 @@ public class Bonus {
     }
 
     private void validate(int bonus, Lotto lotto) {
-        duplicatedwithLotto(bonus, lotto);
+        duplicateByLotto(bonus, lotto);
         numberRangeCheck(bonus);
     }
 
@@ -23,7 +23,7 @@ public class Bonus {
         }
     }
 
-    private static void duplicatedwithLotto(int bonus, Lotto lotto) {
+    private static void duplicateByLotto(int bonus, Lotto lotto) {
         List<Integer> numbers = lotto.getNumbers();
         if (numbers.contains(bonus)) {
             throw new IllegalArgumentException("[ERROR] 보너스 번호는 로또 번호와 다른 숫자여야 합니다.");

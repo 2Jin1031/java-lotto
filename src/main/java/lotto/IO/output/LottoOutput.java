@@ -12,12 +12,12 @@ public class LottoOutput {
         this.numbers = numbers;
     }
 
-    public void PrintInfo() {
+    public void printInfo() {
         System.out.println();
         System.out.println(quantity + "개를 구매했습니다.");
     }
 
-    public void PrintLottos() {
+    public void printLottos() {
         for (List<Integer> lotto : numbers) {
             System.out.print("[");
             for (int i = 0; i < lotto.size(); i++) {

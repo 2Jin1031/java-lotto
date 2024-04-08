@@ -32,7 +32,7 @@ public class UserInputErrorManager {
         Lotto lotto;
         while (true) {
             try {
-                List<Integer> inputList = InputHandler.getUserInputlotto();
+                List<Integer> inputList = InputHandler.getUserInputLotto();
                 lotto = new Lotto(inputList);
                 break;
             } catch (IllegalArgumentException e) {
