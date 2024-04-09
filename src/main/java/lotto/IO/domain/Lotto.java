@@ -14,7 +14,6 @@ public class Lotto {
         numbersSizeCheck(numbers);
         numbersRangeCheck(numbers);
         numbersDuplicate(numbers);
-
     }
 
     private void numbersRangeCheck(List<Integer> numbers) {
