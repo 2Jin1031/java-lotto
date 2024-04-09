@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputHandler {
-    public static Integer getUserInputAmount() throws IllegalArgumentException {
+    public static Integer getUserInputAmount() {
 
         String input = Console.readLine();
         int amount;
@@ -17,7 +17,7 @@ public class InputHandler {
         return amount;
     }
 
-    public static List<Integer> getUserInputLotto() throws IllegalArgumentException {
+    public static List<Integer> getUserInputLotto() {
 
         String input = Console.readLine();
 
@@ -35,7 +35,7 @@ public class InputHandler {
         return lottoNums;
     }
 
-    public static Integer getUserInputBonus() throws IllegalArgumentException {
+    public static Integer getUserInputBonus() {
 
         String input = Console.readLine();
         int bonus;
