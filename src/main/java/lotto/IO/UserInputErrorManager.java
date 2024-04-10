@@ -7,63 +7,37 @@ import lotto.IO.input.LottoTicket;
 import lotto.IO.output.ConsoleMessagePrinter;
 import lotto.IO.output.Messages;
 import lotto.IO.output.MessagePrinter;
-import java.util.List;
 
 public class UserInputErrorManager {
     private final static MessagePrinter printer = new ConsoleMessagePrinter();
 
     public static LottoTicket checkAmount() {
         printer.printMessage(Messages.INPUT_AMOUNT);
-        return getLottoTicket();
-    }
-
-    private static LottoTicket getLottoTicket() {
-        LottoTicket lottoTicket;
-        int number;
-        while (true) {
-            try {
-                number = InputHandler.getUserInputAmount();
-                lottoTicket = new LottoTicket(number);
-                break;
-            } catch (IllegalArgumentException e) {
-                printer.printErrorMessage(e.getMessage());
-            }
-        }
-        return lottoTicket;
+        return getInput(() -> new LottoTicket(InputHandler.getUserInputAmount()));
     }
 
     public static Lotto checkLotto() {
-        System.out.println();
         printer.printMessage(Messages.INPUT_LOTTO);
-
-        Lotto lotto;
-        while (true) {
-            try {
-                List<Integer> inputList = InputHandler.getUserInputLotto();
-                lotto = new Lotto(inputList);
-                break;
-            } catch (IllegalArgumentException e) {
-                printer.printErrorMessage(e.getMessage());
-            }
-        }
-        return lotto;
+        return getInput(() -> new Lotto(InputHandler.getUserInputLotto()));
     }
 
     public static Bonus checkBonus(Lotto lotto) {
-        System.out.println();
-        printer.printMessage(Messages.INPUT_BONUS);
+        printer.printErrorMessage(Messages.INPUT_BONUS);
+        return getInput(() -> new Bonus(InputHandler.getUserInputBonus(), lotto));
+    }
 
-        int number;
-        Bonus bonus;
+    private static <T> T getInput(Supplier<T> inputSupplier) {
         while (true) {
             try {
-                number = InputHandler.getUserInputBonus();
-                bonus = new Bonus(number, lotto);
-                break;
+                return inputSupplier.get();
             } catch (IllegalArgumentException e) {
                 printer.printErrorMessage(e.getMessage());
             }
         }
-        return bonus;
+    }
+
+    @FunctionalInterface
+    private interface Supplier<T> {
+        T get() throws IllegalArgumentException;
     }
 }
