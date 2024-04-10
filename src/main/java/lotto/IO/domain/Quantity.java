@@ -9,10 +9,6 @@ public class Quantity {
         this.quantity = (number) / 1000;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
     private static void validate(int number) {
         validateAmountInThousandUnites(number);
         validateLottoAmountNonNegative(number);
@@ -28,5 +24,9 @@ public class Quantity {
         if ((number % 1000) != 0) {
             throw new IllegalStateException("[ERROR] 로또 구입 금액은 1000원 단위로만 가능합니다.");
         }
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 }
