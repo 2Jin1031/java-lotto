@@ -4,7 +4,7 @@ import lotto.IO.output.Messages;
 
 public class LottoTicket {
 
-    private final int lottoPrice;
+    private int lottoPrice;
 
     public LottoTicket(int amount) {
         validate(amount);
@@ -13,7 +13,7 @@ public class LottoTicket {
 
     private void validate(int amount) {
         if (amount % 1000 != 0) {
-            throw new IllegalArgumentException(Messages.ERROR_PREFIX + Messages.AMOUNT_THOUSAND_UNIT_ERROR);
+            throw new IllegalArgumentException(Messages.AMOUNT_THOUSAND_UNIT_ERROR);
         }
     }
 

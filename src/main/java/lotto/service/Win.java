@@ -17,22 +17,27 @@ public class Win {
 
     public void count(List<Integer> wins, int bonus, List<List<Integer>> lottos) {
         for (int i = 0; i < lottoSize; i++) {
-            int count = 0, bonusCount = 0;
-            for (int j = 0; j < 6; j++) {
-                if (wins.contains(lottos.get(i).get(j))) {
-                    count++;
-                }
-                if (bonus == lottos.get(i).get(j)) {
-                    bonusCount++;
-                }
-            }
-            if (bonusCount == 1 && count == 5) {
-                correctCounts.set(7, correctCounts.get(7) + 1);
-                continue;
-            }
-            int result = count + bonusCount;
-            correctCounts.set(result, correctCounts.get(result) + 1);
+            int matchCount = countMatches(wins, lottos.get(i));
+            int bonusCount = countBonus(bonus, lottos.get(i));
+            updateCounts(matchCount, bonusCount);
         }
+    }
+
+    private int countMatches(List<Integer> wins, List<Integer> lotto) {
+        return (int) lotto.stream().mapToInt(num -> num).filter(wins::contains).count();
+    }
+
+    private int countBonus(int bonus, List<Integer> lotto) {
+        return lotto.contains(bonus) ? 1 : 0;
+    }
+
+    private void updateCounts(int matchCount, int bonusCount) {
+        if (bonusCount == 1 && matchCount == 5) {
+            correctCounts.set(7, correctCounts.get(7) + 1);
+            return ;
+        }
+        int result = matchCount + bonusCount;
+        correctCounts.set(result, correctCounts.get(result) + 1);
     }
 
     public List<Integer> getCorrectCounts() {

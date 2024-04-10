@@ -20,7 +20,7 @@ public class Lotto {
 
     private void numbersRangeCheck(List<Integer> numbers) {
         numbers.stream().mapToInt(number -> number).filter(number -> number < 1 || number > 45).forEach(number -> {
-            throw new IllegalArgumentException(Messages.ERROR_PREFIX + Messages.LOTTO_RANGE_ERROR);
+            throw new IllegalArgumentException(Messages.LOTTO_RANGE_ERROR);
         });
     }
 
@@ -32,7 +32,7 @@ public class Lotto {
 
     private void numbersDuplicate(List<Integer> numbers) {
         if (numbers.stream().distinct().count() != 6) {
-            throw new IllegalArgumentException(Messages.ERROR_PREFIX + Messages.LOTTO_DUPLICATE_ERROR);
+            throw new IllegalArgumentException(Messages.LOTTO_DUPLICATE_ERROR);
         }
     }
 

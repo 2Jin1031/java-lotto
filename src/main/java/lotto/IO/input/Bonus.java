@@ -21,14 +21,14 @@ public class Bonus {
 
     private static void numberRangeCheck(int bonus) {
         if (bonus < 1 || bonus > 45) {
-            throw new IllegalArgumentException(Messages.ERROR_PREFIX + Messages.BONUS_RANGE_ERROR);
+            throw new IllegalArgumentException(Messages.BONUS_RANGE_ERROR);
         }
     }
 
     private static void duplicateByLotto(int bonus, Lotto lotto) {
         List<Integer> numbers = lotto.getNumbers();
         if (numbers.contains(bonus)) {
-            throw new IllegalArgumentException(Messages.ERROR_PREFIX + Messages.BONUS_DUPLICATE_ERROR);
+            throw new IllegalArgumentException(Messages.BONUS_DUPLICATE_ERROR);
         }
     }
 

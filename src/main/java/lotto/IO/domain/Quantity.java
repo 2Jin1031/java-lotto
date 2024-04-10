@@ -18,13 +18,13 @@ public class Quantity {
 
     private static void validateLottoAmountNonNegative(int number) {
         if ((number < 0)) {
-            throw new IllegalStateException(Messages.ERROR_PREFIX + Messages.AMOUNT_NEGATIVE_ERROR);
+            throw new IllegalStateException(Messages.AMOUNT_NEGATIVE_ERROR);
         }
     }
 
     private static void validateAmountInThousandUnites(int number) {
         if ((number % 1000) != 0) {
-            throw new IllegalStateException(Messages.ERROR_PREFIX + Messages.AMOUNT_THOUSAND_UNIT_ERROR);
+            throw new IllegalStateException(Messages.AMOUNT_THOUSAND_UNIT_ERROR);
         }
     }
 
