@@ -9,7 +9,7 @@ public class LottoTicket {
         this.lottoPrice = amount;
     }
 
-    private static void validate(int amount) {
+    private void validate(int amount) {
         if (amount % 1000 != 0) {
             throw new IllegalArgumentException("[ERROR] 로또 구입 금액은 1000원 단위여야 합니다");
         }
