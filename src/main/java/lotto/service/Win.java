@@ -1,15 +1,18 @@
 package lotto.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Win {
 
-    private final int[] correctCounts;
+    private final List<Integer> correctCounts;
     private final int lottoSize;
 
     public Win(int lottoSize) {
         this.lottoSize = lottoSize;
-        this.correctCounts = new int[8];
+        this.correctCounts = new ArrayList<>(8);
+        IntStream.range(0, 8).mapToObj(i -> 0).forEach(this.correctCounts::add);
     }
 
     public void count(List<Integer> wins, int bonus, List<List<Integer>> lottos) {
@@ -24,15 +27,15 @@ public class Win {
                 }
             }
             if (bonusCount == 1 && count == 5) {
-                correctCounts[7]++;
+                correctCounts.set(7, correctCounts.get(7) + 1);
                 continue;
             }
             int result = count + bonusCount;
-            correctCounts[result]++;
+            correctCounts.set(result, correctCounts.get(result) + 1);
         }
     }
 
-    public int[] getCorrectCounts() {
+    public List<Integer> getCorrectCounts() {
         return correctCounts;
     }
 }
