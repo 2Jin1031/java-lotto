@@ -1,14 +1,13 @@
 package lotto.IO.domain;
 
+import java.util.stream.IntStream;
+
 public class Reward {
 
     private final int reward;
 
     public Reward(int[] winPrice, int[] correctCounts) {
-        int sum = 0;
-        for (int i = 0; i < winPrice.length; i++) {
-            sum += winPrice[i] * correctCounts[i];
-        }
+        int sum = IntStream.range(0, winPrice.length).map(i -> winPrice[i] * correctCounts[i]).sum();
         this.reward = sum;
     }
 

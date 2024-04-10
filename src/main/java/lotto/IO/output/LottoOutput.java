@@ -1,6 +1,7 @@
 package lotto.IO.output;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class LottoOutput {
 
@@ -20,12 +21,12 @@ public class LottoOutput {
     public void printLottos() {
         for (List<Integer> lotto : numbers) {
             System.out.print("[");
-            for (int i = 0; i < lotto.size(); i++) {
+            IntStream.range(0, lotto.size()).forEach(i -> {
                 System.out.print(lotto.get(i));
-                if (i != lotto.size() - 1) {
+                if (i != (lotto.size() - 1)) {
                     System.out.print(", ");
                 }
-            }
+            });
             System.out.println("]");
         }
     }

@@ -17,11 +17,9 @@ public class Lotto {
     }
 
     private void numbersRangeCheck(List<Integer> numbers) {
-        for (int number : numbers) {
-            if (number < 1 || number > 45) {
-                throw new IllegalArgumentException("[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.");
-            }
-        }
+        numbers.stream().mapToInt(number -> number).filter(number -> number < 1 || number > 45).forEach(number -> {
+            throw new IllegalArgumentException("[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.");
+        });
     }
 
     private void numbersSizeCheck(List<Integer> numbers) {
@@ -31,8 +29,7 @@ public class Lotto {
     }
 
     private void numbersDuplicate(List<Integer> numbers) {
-        List<Integer> uniqueList = numbers.stream().distinct().toList();
-        if (uniqueList.size() != 6) {
+        if (numbers.stream().distinct().count() != 6) {
             throw new IllegalArgumentException("[ERROR] 로또 번호는 중복되지 않는 숫자여야 합니다.");
         }
     }
