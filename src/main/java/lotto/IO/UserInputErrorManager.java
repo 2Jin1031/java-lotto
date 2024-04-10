@@ -4,7 +4,6 @@ import lotto.IO.domain.Lotto;
 import lotto.IO.input.Bonus;
 import lotto.IO.input.InputHandler;
 import lotto.IO.input.LottoTicket;
-
 import java.util.List;
 
 public class UserInputErrorManager {
