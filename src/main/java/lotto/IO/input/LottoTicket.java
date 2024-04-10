@@ -1,5 +1,7 @@
 package lotto.IO.input;
 
+import lotto.IO.output.Messages;
+
 public class LottoTicket {
 
     private final int lottoPrice;
@@ -11,7 +13,7 @@ public class LottoTicket {
 
     private void validate(int amount) {
         if (amount % 1000 != 0) {
-            throw new IllegalArgumentException("[ERROR] 로또 구입 금액은 1000원 단위여야 합니다");
+            throw new IllegalArgumentException(Messages.ERROR_PREFIX + Messages.AMOUNT_THOUSAND_UNIT_ERROR);
         }
     }
 

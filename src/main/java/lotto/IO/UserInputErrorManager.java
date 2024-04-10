@@ -4,21 +4,29 @@ import lotto.IO.domain.Lotto;
 import lotto.IO.input.Bonus;
 import lotto.IO.input.InputHandler;
 import lotto.IO.input.LottoTicket;
+import lotto.IO.output.ConsoleMessagePrinter;
+import lotto.IO.output.Messages;
+import lotto.IO.output.MessagePrinter;
 import java.util.List;
 
 public class UserInputErrorManager {
-    public static LottoTicket checkAmount() {
-        System.out.println("구입금액을 입력해 주세요.");
+    private final static MessagePrinter printer = new ConsoleMessagePrinter();
 
-        int number;
+    public static LottoTicket checkAmount() {
+        printer.printMessage(Messages.INPUT_AMOUNT);
+        return getLottoTicket();
+    }
+
+    private static LottoTicket getLottoTicket() {
         LottoTicket lottoTicket;
+        int number;
         while (true) {
             try {
                 number = InputHandler.getUserInputAmount();
                 lottoTicket = new LottoTicket(number);
                 break;
             } catch (IllegalArgumentException e) {
-                System.out.println("[ERROR] " + e.getMessage());
+                printer.printErrorMessage(e.getMessage());
             }
         }
         return lottoTicket;
@@ -26,7 +34,7 @@ public class UserInputErrorManager {
 
     public static Lotto checkLotto() {
         System.out.println();
-        System.out.println("당첨 번호를 입력해 주세요.");
+        printer.printMessage(Messages.INPUT_LOTTO);
 
         Lotto lotto;
         while (true) {
@@ -35,7 +43,7 @@ public class UserInputErrorManager {
                 lotto = new Lotto(inputList);
                 break;
             } catch (IllegalArgumentException e) {
-                System.out.println("[ERROR] " + e.getMessage());
+                printer.printErrorMessage(e.getMessage());
             }
         }
         return lotto;
@@ -43,7 +51,7 @@ public class UserInputErrorManager {
 
     public static Bonus checkBonus(Lotto lotto) {
         System.out.println();
-        System.out.println("보너스 번호를 입력해 주세요.");
+        printer.printMessage(Messages.INPUT_BONUS);
 
         int number;
         Bonus bonus;
@@ -53,7 +61,7 @@ public class UserInputErrorManager {
                 bonus = new Bonus(number, lotto);
                 break;
             } catch (IllegalArgumentException e) {
-                System.out.println("[ERROR] " + e.getMessage());
+                printer.printErrorMessage(e.getMessage());
             }
         }
         return bonus;

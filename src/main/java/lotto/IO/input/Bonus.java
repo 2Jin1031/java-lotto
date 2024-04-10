@@ -1,6 +1,8 @@
 package lotto.IO.input;
 
 import lotto.IO.domain.Lotto;
+import lotto.IO.output.Messages;
+
 import java.util.List;
 
 public class Bonus {
@@ -19,14 +21,14 @@ public class Bonus {
 
     private static void numberRangeCheck(int bonus) {
         if (bonus < 1 || bonus > 45) {
-            throw new IllegalArgumentException("[ERROR] 보너스 번호는 1부터 45 사이의 숫자여야 합니다.");
+            throw new IllegalArgumentException(Messages.ERROR_PREFIX + Messages.BONUS_RANGE_ERROR);
         }
     }
 
     private static void duplicateByLotto(int bonus, Lotto lotto) {
         List<Integer> numbers = lotto.getNumbers();
         if (numbers.contains(bonus)) {
-            throw new IllegalArgumentException("[ERROR] 보너스 번호는 로또 번호와 다른 숫자여야 합니다.");
+            throw new IllegalArgumentException(Messages.ERROR_PREFIX + Messages.BONUS_DUPLICATE_ERROR);
         }
     }
 

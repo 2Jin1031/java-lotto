@@ -1,6 +1,8 @@
 package lotto.IO.input;
 
 import lotto.Console;
+import lotto.IO.output.Messages;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +35,7 @@ public class InputHandler {
             int lotto = Integer.parseInt(element.trim());
             lottoNums.add(lotto);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("올바른 숫자 형식이 아닙니다.");
+            throw new IllegalArgumentException(Messages.NUMBER_FORMAT_ERROR);
         }
     }
 
@@ -42,7 +44,7 @@ public class InputHandler {
         try {
             amount = Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("올바른 숫자 형식이 아닙니다.");
+            throw new IllegalArgumentException(Messages.NUMBER_FORMAT_ERROR);
         }
         return amount;
     }

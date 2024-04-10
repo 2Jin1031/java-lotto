@@ -1,5 +1,7 @@
 package lotto.IO.domain;
 
+import lotto.IO.output.Messages;
+
 import java.util.List;
 
 public class Lotto {
@@ -18,7 +20,7 @@ public class Lotto {
 
     private void numbersRangeCheck(List<Integer> numbers) {
         numbers.stream().mapToInt(number -> number).filter(number -> number < 1 || number > 45).forEach(number -> {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.");
+            throw new IllegalArgumentException(Messages.ERROR_PREFIX + Messages.LOTTO_RANGE_ERROR);
         });
     }
 
@@ -30,7 +32,7 @@ public class Lotto {
 
     private void numbersDuplicate(List<Integer> numbers) {
         if (numbers.stream().distinct().count() != 6) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 중복되지 않는 숫자여야 합니다.");
+            throw new IllegalArgumentException(Messages.ERROR_PREFIX + Messages.LOTTO_DUPLICATE_ERROR);
         }
     }
 

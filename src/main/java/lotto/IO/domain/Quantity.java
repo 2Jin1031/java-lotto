@@ -1,5 +1,7 @@
 package lotto.IO.domain;
 
+import lotto.IO.output.Messages;
+
 public class Quantity {
 
     private final int quantity;
@@ -16,13 +18,13 @@ public class Quantity {
 
     private static void validateLottoAmountNonNegative(int number) {
         if ((number < 0)) {
-            throw new IllegalStateException("[ERROR] 로또 구입 금액은 0원 이상이어야 합니다.");
+            throw new IllegalStateException(Messages.ERROR_PREFIX + Messages.AMOUNT_NEGATIVE_ERROR);
         }
     }
 
     private static void validateAmountInThousandUnites(int number) {
         if ((number % 1000) != 0) {
-            throw new IllegalStateException("[ERROR] 로또 구입 금액은 1000원 단위로만 가능합니다.");
+            throw new IllegalStateException(Messages.ERROR_PREFIX + Messages.AMOUNT_THOUSAND_UNIT_ERROR);
         }
     }
 
