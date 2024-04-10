@@ -12,22 +12,15 @@ public class LottoNumberGenerator {
     public LottoNumberGenerator(int quantity) {
         this.lottoNumbers = new ArrayList<>();
         for (int i = 0; i < quantity; i++) {
-            this.lottoNumbers.add(generateSortedLottoNumbers());
+            List<Integer> uniqueNumbers = generateLottoNumber();
+            this.lottoNumbers.add(uniqueNumbers);
         }
     }
 
-    private List<Integer> generateSortedLottoNumbers() {
-        List<Integer> uniqueNumbers = generateUniqueLottoNumbers();
-        return sortNumbers(uniqueNumbers);
-    }
-
-    private static List<Integer> generateUniqueLottoNumbers() {
-        return Randoms.pickUniqueNumbersInRange(1, 45, 6);
-    }
-
-    private List<Integer> sortNumbers(List<Integer> numbers) {
-        Collections.sort(numbers);
-        return numbers;
+    private static List<Integer> generateLottoNumber() {
+        List<Integer> uniqueNumbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
+        Collections.sort(uniqueNumbers);
+        return uniqueNumbers;
     }
 
     public List<List<Integer>> getLottoNumbers() {
