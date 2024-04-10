@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputHandler {
+    
     public static Integer getUserInputAmount() {
-
         String input = Console.readLine();
         int amount;
         try {
