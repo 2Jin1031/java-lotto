@@ -17,12 +17,14 @@ public class UserInputErrorManager {
     }
 
     public static Lotto checkLotto() {
+        System.out.println();
         printer.printMessage(Messages.INPUT_LOTTO);
         return getInput(() -> new Lotto(InputHandler.getUserInputLotto()));
     }
 
     public static Bonus checkBonus(Lotto lotto) {
-        printer.printErrorMessage(Messages.INPUT_BONUS);
+        System.out.println();
+        printer.printMessage(Messages.INPUT_BONUS);
         return getInput(() -> new Bonus(InputHandler.getUserInputBonus(), lotto));
     }
 
