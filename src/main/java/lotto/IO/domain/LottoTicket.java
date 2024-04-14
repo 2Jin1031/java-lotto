@@ -1,6 +1,6 @@
 package lotto.IO.domain;
 
-import lotto.IO.output.Messages;
+import lotto.IO.appConfig.Messages;
 
 public class LottoTicket {
 

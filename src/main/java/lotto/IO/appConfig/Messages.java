@@ -1,4 +1,4 @@
-package lotto.IO.output;
+package lotto.IO.appConfig;
 
 public class Messages {
 

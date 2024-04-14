@@ -1,8 +1,8 @@
 package lotto.IO.input;
 
 import lotto.Console;
-import lotto.IO.output.Contants;
-import lotto.IO.output.Messages;
+import lotto.IO.appConfig.Contants;
+import lotto.IO.appConfig.Messages;
 
 import java.util.ArrayList;
 import java.util.List;

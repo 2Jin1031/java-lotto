@@ -1,7 +1,6 @@
 package lotto.IO.domain;
 
-import lotto.IO.domain.Lotto;
-import lotto.IO.output.Messages;
+import lotto.IO.appConfig.Messages;
 
 import java.util.List;
 
