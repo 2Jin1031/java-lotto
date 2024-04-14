@@ -1,4 +1,4 @@
-package lotto.IO.input;
+package lotto.IO.domain;
 
 import lotto.IO.output.Messages;
 

@@ -1,9 +1,9 @@
 package lotto.IO;
 
 import lotto.IO.domain.Lotto;
-import lotto.IO.input.Bonus;
+import lotto.IO.domain.Bonus;
 import lotto.IO.input.InputHandler;
-import lotto.IO.input.LottoTicket;
+import lotto.IO.domain.LottoTicket;
 import lotto.IO.output.ConsoleMessagePrinter;
 import lotto.IO.output.Messages;
 import lotto.IO.output.MessagePrinter;
