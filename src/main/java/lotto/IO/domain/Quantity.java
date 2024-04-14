@@ -12,8 +12,8 @@ public class Quantity {
     }
 
     private static void validate(int number) {
-        validateAmountInThousandUnites(number);
         validateLottoAmountNonNegative(number);
+        validateAmountInThousandUnites(number);
     }
 
     private static void validateLottoAmountNonNegative(int number) {

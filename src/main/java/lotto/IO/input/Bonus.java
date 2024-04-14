@@ -15,8 +15,8 @@ public class Bonus {
     }
 
     private void validate(int bonus, Lotto lotto) {
-        duplicateByLotto(bonus, lotto);
         numberRangeCheck(bonus);
+        duplicateByLotto(bonus, lotto);
     }
 
     private static void numberRangeCheck(int bonus) {
