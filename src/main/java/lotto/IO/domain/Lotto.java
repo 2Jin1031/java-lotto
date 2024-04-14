@@ -5,7 +5,7 @@ import lotto.IO.output.Messages;
 import java.util.List;
 
 public class Lotto {
-    
+
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
@@ -14,8 +14,8 @@ public class Lotto {
     }
 
     private void validate(List<Integer> numbers) {
-        numbersSizeCheck(numbers);
         numbersRangeCheck(numbers);
+        numbersSizeCheck(numbers);
         numbersDuplicate(numbers);
     }
 
