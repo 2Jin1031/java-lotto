@@ -3,7 +3,6 @@ package lotto.IO.input;
 import lotto.IO.appConfig.Console;
 import lotto.IO.appConfig.Contants;
 import lotto.IO.appConfig.Messages;
-
 import java.util.ArrayList;
 import java.util.List;
 
