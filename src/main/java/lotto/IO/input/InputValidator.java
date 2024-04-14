@@ -1,4 +1,4 @@
-package lotto.IO;
+package lotto.IO.input;
 
 import lotto.IO.domain.Lotto;
 import lotto.IO.domain.Bonus;

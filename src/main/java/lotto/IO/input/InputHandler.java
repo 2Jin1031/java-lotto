@@ -1,6 +1,6 @@
 package lotto.IO.input;
 
-import lotto.Console;
+import lotto.IO.appConfig.Console;
 import lotto.IO.appConfig.Contants;
 import lotto.IO.appConfig.Messages;
 

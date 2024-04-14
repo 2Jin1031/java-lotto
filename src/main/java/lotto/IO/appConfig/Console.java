@@ -1,4 +1,4 @@
-package lotto;
+package lotto.IO.appConfig;
 
 import java.util.Scanner;
 
