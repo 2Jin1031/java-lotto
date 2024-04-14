@@ -1,12 +1,11 @@
 package lotto.IO.input;
 
-import lotto.IO.domain.Lotto;
-import lotto.IO.domain.Bonus;
-import lotto.IO.input.InputHandler;
-import lotto.IO.domain.LottoTicket;
 import lotto.IO.appConfig.ConsoleMessagePrinter;
-import lotto.IO.appConfig.Messages;
 import lotto.IO.appConfig.MessagePrinter;
+import lotto.IO.appConfig.Messages;
+import lotto.IO.domain.Bonus;
+import lotto.IO.domain.Lotto;
+import lotto.IO.domain.LottoTicket;
 
 public class InputValidator {
 
