@@ -2,7 +2,6 @@ package lotto;
 
 import lotto.IO.UserInputErrorManager;
 import lotto.IO.domain.*;
-import lotto.IO.info.Info;
 import lotto.IO.input.Bonus;
 import lotto.IO.input.LottoTicket;
 import lotto.IO.output.LottoOutput;
@@ -21,7 +20,6 @@ public class LottoGame {
         Lotto lotto = UserInputErrorManager.checkLotto();
         Bonus bonus = UserInputErrorManager.checkBonus(lotto);
 
-        displayStatistics();
         processWinning(lottoTicket, quantity, lotto, bonus, lottosGenerator);
     }
 
@@ -31,9 +29,6 @@ public class LottoGame {
         lottoOutput.printLottos();
     }
 
-    private void displayStatistics() {
-        Info.Statistics();
-    }
 
     private void processWinning(LottoTicket lottoTicket, Quantity quantity, Lotto lotto, Bonus bonus, LottosGenerator lottosGenerator) {
         Win win = new Win(quantity.getQuantity());

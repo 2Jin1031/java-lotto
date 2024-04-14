@@ -16,7 +16,11 @@ public class WinOutput {
         this.correctCounts = correctCounts;
     }
 
+
     public void print() {
+        System.out.println();
+        System.out.println("당첨 통계");
+        System.out.println("---");
         int i;
         for (i = 3; i < 6; i++) {
             System.out.println(i + "개 일치 (" + numberFormat.format(winPrice.get(i)) + "원) - " + correctCounts.get(i) + "개");
