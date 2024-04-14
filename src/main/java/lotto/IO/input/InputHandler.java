@@ -40,12 +40,10 @@ public class InputHandler {
     }
 
     private static int checkNumberFormat(String input) {
-        int amount = 0;
         try {
-            amount = Integer.parseInt(input);
+            return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(Messages.NUMBER_FORMAT_ERROR);
         }
-        return amount;
     }
 }
