@@ -8,7 +8,9 @@ public class Reward {
     private final int reward;
 
     public Reward(List<Integer> winPrice, List<Integer> correctCounts) {
-        this.reward = IntStream.range(0, winPrice.toArray().length).map(i -> winPrice.get(i) * correctCounts.get(i)).sum();
+        this.reward = IntStream.range(0, winPrice.toArray().length)
+                .map(i -> winPrice.get(i) * correctCounts.get(i))
+                .sum();
     }
 
     public int getReward() {
