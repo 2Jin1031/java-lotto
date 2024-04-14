@@ -20,9 +20,11 @@ public class Lotto {
     }
 
     private void numbersRangeCheck(List<Integer> numbers) {
-        numbers.stream().mapToInt(number -> number).filter(number -> number < 1 || number > 45).forEach(number -> {
-            throw new IllegalArgumentException(Messages.LOTTO_RANGE_ERROR);
-        });
+        for (Integer number : numbers) {
+            if (number < 1 || number > 45) {
+                throw new IllegalArgumentException(Messages.LOTTO_RANGE_ERROR);
+            }
+        }
     }
 
     private void numbersSizeCheck(List<Integer> numbers) {
