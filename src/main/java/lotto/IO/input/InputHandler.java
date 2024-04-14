@@ -1,6 +1,7 @@
 package lotto.IO.input;
 
 import lotto.Console;
+import lotto.IO.output.Contants;
 import lotto.IO.output.Messages;
 
 import java.util.ArrayList;
@@ -9,37 +10,40 @@ import java.util.List;
 public class InputHandler {
 
     public static Integer getUserInputAmount() {
-        String input = Console.readLine();
-        return checkNumberFormat(input);
+        return validateParseInt(readInput());
     }
 
     public static List<Integer> getUserInputLotto() {
-        String input = Console.readLine();
-
-        List<String> inputs = List.of(input.split(","));
-        List<Integer> lottoNums = new ArrayList<>();
-
-        inputs.forEach(element -> {
-            checkNumbersFormat(element, lottoNums);
-        });
-        return lottoNums;
+        List<String> inputs = splitInput(readInput(), Contants.LOTTO_NUMBER_DELIMITER);
+        return validateParseIntegerLists(inputs);
     }
 
     public static Integer getUserInputBonus() {
-        String input = Console.readLine();
-        return checkNumberFormat(input);
+        String input = readInput();
+        return validateParseInt(input);
     }
 
-    private static void checkNumbersFormat(String element, List<Integer> lottoNums) {
-        try {
-            int lotto = Integer.parseInt(element.trim());
-            lottoNums.add(lotto);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(Messages.NUMBER_FORMAT_ERROR);
+    private static String readInput() {
+        return Console.readLine();
+    }
+
+    private static List<String> splitInput(String input, String delimiter) {
+        return List.of(input.split(delimiter));
+    }
+
+    private static List<Integer> validateParseIntegerLists(List<String> inputs) {
+        List<Integer> numbers = new ArrayList<>();
+        for (String input : inputs) {
+            try {
+                numbers.add(Integer.parseInt(input.trim()));
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException(Messages.NUMBER_FORMAT_ERROR);
+            }
         }
+        return numbers;
     }
 
-    private static int checkNumberFormat(String input) {
+    private static Integer validateParseInt(String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
