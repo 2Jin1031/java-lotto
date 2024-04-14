@@ -1,6 +1,7 @@
 package lotto.IO.domain;
 
 import lotto.IO.appConfig.Messages;
+import lotto.IO.output.OutputService;
 
 public class Quantity {
 
@@ -30,5 +31,9 @@ public class Quantity {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public void printInfo() {
+        OutputService.printPurchaseInfo(quantity);
     }
 }

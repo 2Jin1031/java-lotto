@@ -1,5 +1,7 @@
 package lotto.IO.domain;
 
+import lotto.IO.output.OutputService;
+
 public class RateOfReturn {
 
     private final double rateOfReturn;
@@ -10,5 +12,9 @@ public class RateOfReturn {
 
     public double getRateOfReturn() {
         return rateOfReturn;
+    }
+
+    public void print() {
+        OutputService.printRateOfReturn(rateOfReturn);
     }
 }

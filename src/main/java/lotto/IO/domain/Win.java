@@ -1,4 +1,6 @@
-package lotto.service;
+package lotto.IO.domain;
+
+import lotto.IO.output.OutputService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,15 +9,17 @@ import java.util.stream.IntStream;
 public class Win {
 
     private final List<Integer> correctCounts;
+    private final List<Integer> winPrices;
     private final int lottoSize;
 
     public Win(int lottoSize) {
         this.lottoSize = lottoSize;
         this.correctCounts = new ArrayList<>(8);
-        IntStream.range(0, 8).mapToObj(i -> 0).forEach(this.correctCounts::add);
+        this.winPrices = List.of(0, 0, 0, 5000, 50000, 1500000, 30000000, 2000000000);
+        IntStream.range(0, 8).forEach(i -> correctCounts.add(0));
     }
 
-    public void count(List<Integer> wins, int bonus, List<List<Integer>> lottos) {
+    public void countCorrects(List<Integer> wins, int bonus, List<List<Integer>> lottos) {
         for (int i = 0; i < lottoSize; i++) {
             int matchCount = countMatches(wins, lottos.get(i));
             int bonusCount = countBonus(bonus, lottos.get(i));
@@ -24,7 +28,7 @@ public class Win {
     }
 
     private int countMatches(List<Integer> wins, List<Integer> lotto) {
-        return (int) lotto.stream().mapToInt(num -> num).filter(wins::contains).count();
+        return (int) lotto.stream().filter(wins::contains).count();
     }
 
     private int countBonus(int bonus, List<Integer> lotto) {
@@ -39,8 +43,15 @@ public class Win {
         int result = matchCount + bonusCount;
         correctCounts.set(result, correctCounts.get(result) + 1);
     }
+    public void print() {
+        OutputService.printWinStatistics(correctCounts, winPrices);
+    }
 
     public List<Integer> getCorrectCounts() {
         return correctCounts;
+    }
+
+    public List<Integer> getWinPrices() {
+        return winPrices;
     }
 }
