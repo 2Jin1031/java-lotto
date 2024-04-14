@@ -19,7 +19,7 @@ public class LottoOutput {
     }
 
     public void printLottos() {
-        numbers.forEach(lotto -> {
+        for (List<Integer> lotto : numbers) {
             System.out.print("[");
             IntStream.range(0, lotto.size()).forEach(i -> {
                 System.out.print(lotto.get(i));
@@ -28,6 +28,6 @@ public class LottoOutput {
                 }
             });
             System.out.println("]");
-        });
+        }
     }
 }
