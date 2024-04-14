@@ -9,33 +9,25 @@ import java.util.List;
 
 public class InputHandler {
 
-    public static Integer getUserInputAmount() {
-        return validateParseInt(readInput());
-    }
-
-    public static List<Integer> getUserInputLotto() {
-        List<String> inputs = splitInput(readInput(), Contants.LOTTO_NUMBER_DELIMITER);
-        return validateParseIntegerLists(inputs);
-    }
-
-    public static Integer getUserInputBonus() {
-        String input = readInput();
-        return validateParseInt(input);
-    }
-
-    private static String readInput() {
+    public static String readInput() {
         return Console.readLine();
     }
 
-    private static List<String> splitInput(String input, String delimiter) {
-        return List.of(input.split(delimiter));
+    public static Integer parseIntOrThrow(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(Messages.NUMBER_FORMAT_ERROR);
+        }
     }
 
-    private static List<Integer> validateParseIntegerLists(List<String> inputs) {
+    public static List<Integer> parseIntegerListOrThrow(String input) {
+        List<String> splitInputs = splitInput(input, Contants.LOTTO_NUMBER_DELIMITER);
+
         List<Integer> numbers = new ArrayList<>();
-        for (String input : inputs) {
+        for (String splitInput : splitInputs) {
             try {
-                numbers.add(Integer.parseInt(input.trim()));
+                numbers.add(Integer.parseInt(splitInput.trim()));
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException(Messages.NUMBER_FORMAT_ERROR);
             }
@@ -43,11 +35,7 @@ public class InputHandler {
         return numbers;
     }
 
-    private static Integer validateParseInt(String input) {
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(Messages.NUMBER_FORMAT_ERROR);
-        }
+    private static List<String> splitInput(String input, String delimiter) {
+        return List.of(input.split(delimiter));
     }
 }

@@ -14,19 +14,28 @@ public class InputValidator {
 
     public static LottoTicket getValidLottoTicket() {
         printer.printMessage(Messages.INPUT_AMOUNT);
-        return getInput(() -> new LottoTicket(InputHandler.getUserInputAmount()));
+        return getInput(() -> {
+            String input = InputHandler.readInput();
+            return new LottoTicket(InputHandler.parseIntOrThrow(input));
+        });
     }
 
     public static Lotto getValidLotto() {
         System.out.println();
         printer.printMessage(Messages.INPUT_LOTTO);
-        return getInput(() -> new Lotto(InputHandler.getUserInputLotto()));
+        return getInput(() -> {
+            String input = InputHandler.readInput();
+            return new Lotto(InputHandler.parseIntegerListOrThrow(input));
+        });
     }
 
     public static Bonus getValidBonus(Lotto lotto) {
         System.out.println();
         printer.printMessage(Messages.INPUT_BONUS);
-        return getInput(() -> new Bonus(InputHandler.getUserInputBonus(), lotto));
+        return getInput(() -> {
+            String input = InputHandler.readInput();
+            return new Bonus(InputHandler.parseIntOrThrow(input), lotto);
+        });
     }
 
     private static <T> T getInput(Supplier<T> inputSupplier) {
