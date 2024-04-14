@@ -55,8 +55,8 @@ public class LottoGame {
     }
 
     private void printRateOfReturn(LottoTicket lottoTicket, Reward reward) {
-        LottoRate lottoRate = new LottoRate(lottoTicket.getLottoPrice(), reward.getReward());
-        RateOfReturnOutput rateOfReturnOutput = new RateOfReturnOutput(lottoRate.getRate());
+        RateOfReturn rateOfRuturn = new RateOfReturn(lottoTicket.getLottoPrice(), reward.getReward());
+        RateOfReturnOutput rateOfReturnOutput = new RateOfReturnOutput(rateOfRuturn.getRateOfReturn());
         rateOfReturnOutput.print();
     }
 }
