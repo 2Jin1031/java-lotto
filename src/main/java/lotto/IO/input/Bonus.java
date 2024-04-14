@@ -19,13 +19,13 @@ public class Bonus {
         duplicateByLotto(bonus, lotto);
     }
 
-    private static void numberRangeCheck(int bonus) {
+    private void numberRangeCheck(int bonus) {
         if (bonus < 1 || bonus > 45) {
             throw new IllegalArgumentException(Messages.BONUS_RANGE_ERROR);
         }
     }
 
-    private static void duplicateByLotto(int bonus, Lotto lotto) {
+    private void duplicateByLotto(int bonus, Lotto lotto) {
         List<Integer> numbers = lotto.getNumbers();
         if (numbers.contains(bonus)) {
             throw new IllegalArgumentException(Messages.BONUS_DUPLICATE_ERROR);

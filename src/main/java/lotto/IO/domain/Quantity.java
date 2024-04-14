@@ -11,18 +11,18 @@ public class Quantity {
         this.quantity = (number) / 1000;
     }
 
-    private static void validate(int number) {
+    private void validate(int number) {
         validateLottoAmountNonNegative(number);
         validateAmountInThousandUnites(number);
     }
 
-    private static void validateLottoAmountNonNegative(int number) {
+    private void validateLottoAmountNonNegative(int number) {
         if (number < 0) {
             throw new IllegalStateException(Messages.AMOUNT_NEGATIVE_ERROR);
         }
     }
 
-    private static void validateAmountInThousandUnites(int number) {
+    private void validateAmountInThousandUnites(int number) {
         if (number % 1000 != 0) {
             throw new IllegalStateException(Messages.AMOUNT_THOUSAND_UNIT_ERROR);
         }
