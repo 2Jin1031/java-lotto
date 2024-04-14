@@ -3,6 +3,7 @@ package lotto;
 import java.util.Scanner;
 
 public class Console {
+
     private static Scanner scanner;
 
     private Console() {
