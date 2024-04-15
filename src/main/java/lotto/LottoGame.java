@@ -1,57 +1,42 @@
 package lotto;
 
-import lotto.IO.UserInputErrorManager;
+import lotto.IO.input.InputValidator;
 import lotto.IO.domain.*;
-import lotto.IO.input.Bonus;
-import lotto.IO.input.LottoTicket;
-import lotto.IO.output.LottoOutput;
-import lotto.IO.output.RateOfReturnOutput;
-import lotto.IO.output.WinOutput;
-import lotto.service.Win;
+import lotto.IO.domain.Win;
 
 public class LottoGame {
 
     public void process() {
-        LottoTicket lottoTicket = UserInputErrorManager.checkAmount();
+        LottoTicket lottoTicket = InputValidator.getValidLottoTicket();
         Quantity quantity = new Quantity(lottoTicket.getLottoPrice());
-        LottosGenerator lottosGenerator = new LottosGenerator(quantity.getQuantity());
+        LottosGenerator lottosGenerator = new LottosGenerator(quantity);
         printLottoInformation(quantity, lottosGenerator);
 
-        Lotto lotto = UserInputErrorManager.checkLotto();
-        Bonus bonus = UserInputErrorManager.checkBonus(lotto);
+        Lotto lotto = InputValidator.getValidLotto();
+        Bonus bonus = InputValidator.getValidBonus(lotto);
 
         processWinning(lottoTicket, quantity, lotto, bonus, lottosGenerator);
     }
 
     private void printLottoInformation(Quantity quantity, LottosGenerator lottosGenerator) {
-        LottoOutput lottoOutput = new LottoOutput(quantity.getQuantity(), lottosGenerator.getLottoNumbers());
-        lottoOutput.printInfo();
-        lottoOutput.printLottos();
+        quantity.printInfo();
+        lottosGenerator.print();
     }
-
 
     private void processWinning(LottoTicket lottoTicket, Quantity quantity, Lotto lotto, Bonus bonus, LottosGenerator lottosGenerator) {
         Win win = new Win(quantity.getQuantity());
-        win.count(lotto.getNumbers(), bonus.getBonus(), lottosGenerator.getLottoNumbers());
-        WinOutput winOutput = printWinningInfo(win);
-        calculateRewards(lottoTicket, winOutput, win);
+        win.countCorrects(lotto.getNumbers(), bonus.getBonus(), lottosGenerator.getLottoNumbers());
+        win.print();
+        calculateRewards(lottoTicket, win);
     }
 
-    private WinOutput printWinningInfo(Win win) {
-        WinOutput winOutput = new WinOutput(win.getCorrectCounts());
-        winOutput.print();
-
-        return winOutput;
-    }
-
-    private void calculateRewards(LottoTicket lottoTicket, WinOutput winOutput, Win win) {
-        Reward reward = new Reward(winOutput.getWinPrice(), win.getCorrectCounts());
+    private void calculateRewards(LottoTicket lottoTicket, Win win) {
+        Reward reward = new Reward(win.getWinPrices(), win.getCorrectCounts());
         printRateOfReturn(lottoTicket, reward);
     }
 
     private void printRateOfReturn(LottoTicket lottoTicket, Reward reward) {
-        RateOfReturn rateOfRuturn = new RateOfReturn(lottoTicket.getLottoPrice(), reward.getReward());
-        RateOfReturnOutput rateOfReturnOutput = new RateOfReturnOutput(rateOfRuturn.getRateOfReturn());
-        rateOfReturnOutput.print();
+        RateOfReturn rateOfReturn = new RateOfReturn(lottoTicket.getLottoPrice(), reward.getReward());
+        rateOfReturn.print();
     }
 }
