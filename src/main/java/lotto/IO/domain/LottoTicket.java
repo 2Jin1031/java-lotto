@@ -4,7 +4,7 @@ import lotto.IO.appConfig.Messages;
 
 public class LottoTicket {
 
-    private int lottoPrice;
+    private final int lottoPrice;
 
     public LottoTicket(int amount) {
         validate(amount);
