@@ -2,7 +2,7 @@ package lotto.IO.input;
 
 import lotto.IO.appConfig.ConsoleMessagePrinter;
 import lotto.IO.appConfig.MessagePrinter;
-import lotto.IO.appConfig.Messages;
+import lotto.IO.appConfig.PromptConstants;
 import lotto.IO.domain.Bonus;
 import lotto.IO.domain.Lotto;
 import lotto.IO.domain.LottoTicket;
@@ -12,7 +12,7 @@ public class InputValidator {
     private final static MessagePrinter printer = new ConsoleMessagePrinter();
 
     public static LottoTicket getValidLottoTicket() {
-        printer.message(Messages.INPUT_AMOUNT);
+        printer.message(PromptConstants.INPUT_AMOUNT);
         return getInput(() -> {
             String input = InputHandler.readInput();
             return new LottoTicket(InputHandler.parseIntOrThrow(input));
@@ -21,7 +21,7 @@ public class InputValidator {
 
     public static Lotto getValidLotto() {
         System.out.println();
-        printer.message(Messages.INPUT_LOTTO);
+        printer.message(PromptConstants.INPUT_LOTTO);
         return getInput(() -> {
             String input = InputHandler.readInput();
             return new Lotto(InputHandler.parseIntegerListOrThrow(input));
@@ -30,7 +30,7 @@ public class InputValidator {
 
     public static Bonus getValidBonus(Lotto lotto) {
         System.out.println();
-        printer.message(Messages.INPUT_BONUS);
+        printer.message(PromptConstants.INPUT_BONUS);
         return getInput(() -> {
             String input = InputHandler.readInput();
             return new Bonus(InputHandler.parseIntOrThrow(input), lotto);

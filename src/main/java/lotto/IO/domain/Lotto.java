@@ -1,6 +1,6 @@
 package lotto.IO.domain;
 
-import lotto.IO.appConfig.Messages;
+import lotto.IO.appConfig.PromptConstants;
 import java.util.List;
 
 public class Lotto {
@@ -21,20 +21,20 @@ public class Lotto {
     private void numbersRangeCheck(List<Integer> numbers) {
         for (Integer number : numbers) {
             if (number < 1 || number > 45) {
-                throw new IllegalArgumentException(Messages.LOTTO_RANGE_ERROR);
+                throw new IllegalArgumentException(PromptConstants.LOTTO_RANGE_ERROR);
             }
         }
     }
 
     private void numbersSizeCheck(List<Integer> numbers) {
         if (numbers.size() != 6) {
-            throw new IllegalArgumentException(Messages.LOTTO_SIZE_ERROR);
+            throw new IllegalArgumentException(PromptConstants.LOTTO_SIZE_ERROR);
         }
     }
 
     private void numbersDuplicate(List<Integer> numbers) {
         if (numbers.stream().distinct().count() != 6) {
-            throw new IllegalArgumentException(Messages.LOTTO_DUPLICATE_ERROR);
+            throw new IllegalArgumentException(PromptConstants.LOTTO_DUPLICATE_ERROR);
         }
     }
 

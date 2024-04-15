@@ -1,6 +1,6 @@
 package lotto.IO.appConfig;
 
-public class Contants {
+public class ConfigConstants {
 
     public static final String LOTTO_NUMBER_DELIMITER = ",";
 }

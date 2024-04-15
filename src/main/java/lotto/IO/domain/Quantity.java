@@ -1,6 +1,6 @@
 package lotto.IO.domain;
 
-import lotto.IO.appConfig.Messages;
+import lotto.IO.appConfig.PromptConstants;
 import lotto.IO.output.OutputService;
 
 public class Quantity {
@@ -19,13 +19,13 @@ public class Quantity {
 
     private void validateLottoAmountNonNegative(int number) {
         if (number < 0) {
-            throw new IllegalStateException(Messages.AMOUNT_NEGATIVE_ERROR);
+            throw new IllegalStateException(PromptConstants.AMOUNT_NEGATIVE_ERROR);
         }
     }
 
     private void validateAmountInThousandUnites(int number) {
         if (number % 1000 != 0) {
-            throw new IllegalStateException(Messages.AMOUNT_THOUSAND_UNIT_ERROR);
+            throw new IllegalStateException(PromptConstants.AMOUNT_THOUSAND_UNIT_ERROR);
         }
     }
 

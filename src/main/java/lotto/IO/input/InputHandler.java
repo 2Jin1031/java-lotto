@@ -1,8 +1,8 @@
 package lotto.IO.input;
 
 import lotto.IO.appConfig.Console;
-import lotto.IO.appConfig.Contants;
-import lotto.IO.appConfig.Messages;
+import lotto.IO.appConfig.ConfigConstants;
+import lotto.IO.appConfig.PromptConstants;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,19 +16,19 @@ public class InputHandler {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(Messages.NUMBER_FORMAT_ERROR);
+            throw new IllegalArgumentException(PromptConstants.NUMBER_FORMAT_ERROR);
         }
     }
 
     public static List<Integer> parseIntegerListOrThrow(String input) {
-        List<String> splitInputs = splitInput(input, Contants.LOTTO_NUMBER_DELIMITER);
+        List<String> splitInputs = splitInput(input, ConfigConstants.LOTTO_NUMBER_DELIMITER);
 
         List<Integer> numbers = new ArrayList<>();
         for (String splitInput : splitInputs) {
             try {
                 numbers.add(Integer.parseInt(splitInput.trim()));
             } catch (NumberFormatException e) {
-                throw new IllegalArgumentException(Messages.NUMBER_FORMAT_ERROR);
+                throw new IllegalArgumentException(PromptConstants.NUMBER_FORMAT_ERROR);
             }
         }
         return numbers;

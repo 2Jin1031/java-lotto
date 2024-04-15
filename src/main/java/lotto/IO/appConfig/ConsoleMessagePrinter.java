@@ -7,6 +7,6 @@ public class ConsoleMessagePrinter implements MessagePrinter {
     }
 
     public void error(String message) {
-        System.out.println(Messages.ERROR_PREFIX + message);
+        System.out.println(PromptConstants.ERROR_PREFIX + message);
     }
 }
