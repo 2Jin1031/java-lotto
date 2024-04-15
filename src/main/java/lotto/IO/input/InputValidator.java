@@ -12,7 +12,7 @@ public class InputValidator {
     private final static MessagePrinter printer = new ConsoleMessagePrinter();
 
     public static LottoTicket getValidLottoTicket() {
-        printer.printMessage(Messages.INPUT_AMOUNT);
+        printer.message(Messages.INPUT_AMOUNT);
         return getInput(() -> {
             String input = InputHandler.readInput();
             return new LottoTicket(InputHandler.parseIntOrThrow(input));
@@ -21,7 +21,7 @@ public class InputValidator {
 
     public static Lotto getValidLotto() {
         System.out.println();
-        printer.printMessage(Messages.INPUT_LOTTO);
+        printer.message(Messages.INPUT_LOTTO);
         return getInput(() -> {
             String input = InputHandler.readInput();
             return new Lotto(InputHandler.parseIntegerListOrThrow(input));
@@ -30,7 +30,7 @@ public class InputValidator {
 
     public static Bonus getValidBonus(Lotto lotto) {
         System.out.println();
-        printer.printMessage(Messages.INPUT_BONUS);
+        printer.message(Messages.INPUT_BONUS);
         return getInput(() -> {
             String input = InputHandler.readInput();
             return new Bonus(InputHandler.parseIntOrThrow(input), lotto);
@@ -42,7 +42,7 @@ public class InputValidator {
             try {
                 return inputSupplier.get();
             } catch (IllegalArgumentException e) {
-                printer.printErrorMessage(e.getMessage());
+                printer.error(e.getMessage());
             }
         }
     }

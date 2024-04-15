@@ -2,6 +2,6 @@ package lotto.IO.appConfig;
 
 public interface MessagePrinter {
 
-    void printMessage(String message);
-    void printErrorMessage(String message);
+    void message(String message);
+    void error(String message);
 }
