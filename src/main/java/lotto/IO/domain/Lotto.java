@@ -1,5 +1,6 @@
 package lotto.IO.domain;
 
+import lotto.IO.appConfig.ConfigConstants;
 import lotto.IO.appConfig.PromptConstants;
 
 import java.util.HashSet;
@@ -23,21 +24,21 @@ public class Lotto {
 
     private void numbersRangeCheck(List<Integer> numbers) {
         for (Integer number : numbers) {
-            if (number < 1 || number > 45) {
+            if (number < ConfigConstants.LOTTO_MIN_NUMBER || number > ConfigConstants.LOTTO_MAX_NUMBER) {
                 throw new IllegalArgumentException(PromptConstants.LOTTO_RANGE_ERROR);
             }
         }
     }
 
     private void numbersSizeCheck(List<Integer> numbers) {
-        if (numbers.size() != 6) {
+        if (numbers.size() != ConfigConstants.LOTTO_SIZE) {
             throw new IllegalArgumentException(PromptConstants.LOTTO_SIZE_ERROR);
         }
     }
 
     private void numbersDuplicate(List<Integer> numbers) {
         Set<Integer> uniqueNumbers = new HashSet<>(numbers);
-        if (uniqueNumbers.size() != 6) {
+        if (uniqueNumbers.size() != ConfigConstants.LOTTO_SIZE) {
             throw new IllegalArgumentException(PromptConstants.LOTTO_DUPLICATE_ERROR);
         }
     }

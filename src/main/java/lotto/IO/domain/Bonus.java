@@ -1,5 +1,6 @@
 package lotto.IO.domain;
 
+import lotto.IO.appConfig.ConfigConstants;
 import lotto.IO.appConfig.PromptConstants;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class Bonus {
     }
 
     private void numberRangeCheck(int bonus) {
-        if (bonus < 1 || bonus > 45) {
+        if (bonus < ConfigConstants.LOTTO_MIN_NUMBER || bonus > ConfigConstants.LOTTO_MAX_NUMBER) {
             throw new IllegalArgumentException(PromptConstants.BONUS_RANGE_ERROR);
         }
     }
