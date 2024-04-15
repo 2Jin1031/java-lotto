@@ -9,7 +9,7 @@ public class RateOfReturn {
     public RateOfReturn(double price, double benefit) {
         this.rateOfReturn = (benefit / price) * 100;
     }
-    
+
     public void print() {
         OutputService.printRateOfReturn(rateOfReturn);
     }

@@ -21,7 +21,7 @@ public class InputHandler {
     }
 
     public static List<Integer> parseIntegerListOrThrow(String input) {
-        List<String> splitInputs = splitInput(input, ConfigConstants.LOTTO_NUMBER_DELIMITER);
+        List<String> splitInputs = splitInput(input);
 
         List<Integer> numbers = new ArrayList<>();
         for (String splitInput : splitInputs) {
@@ -34,7 +34,7 @@ public class InputHandler {
         return numbers;
     }
 
-    private static List<String> splitInput(String input, String delimiter) {
-        return List.of(input.split(delimiter));
+    private static List<String> splitInput(String input) {
+        return List.of(input.split(ConfigConstants.LOTTO_NUMBER_DELIMITER));
     }
 }
