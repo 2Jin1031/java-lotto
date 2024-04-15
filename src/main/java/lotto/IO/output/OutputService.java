@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 
 public class OutputService {
 
-    private static NumberFormat numberFormat = NumberFormat.getInstance();
+    private static final NumberFormat numberFormat = NumberFormat.getInstance();
 
     public static void printPurchaseInfo(int quantity) {
         System.out.println();
