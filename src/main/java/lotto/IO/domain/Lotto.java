@@ -1,7 +1,10 @@
 package lotto.IO.domain;
 
 import lotto.IO.appConfig.PromptConstants;
+
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Lotto {
 
@@ -33,7 +36,8 @@ public class Lotto {
     }
 
     private void numbersDuplicate(List<Integer> numbers) {
-        if (numbers.stream().distinct().count() != 6) {
+        Set<Integer> uniqueNumbers = new HashSet<>(numbers);
+        if (uniqueNumbers.size() != 6) {
             throw new IllegalArgumentException(PromptConstants.LOTTO_DUPLICATE_ERROR);
         }
     }
