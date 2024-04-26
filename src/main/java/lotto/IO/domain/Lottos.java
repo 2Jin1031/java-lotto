@@ -22,7 +22,7 @@ public class Lottos {
                 .mapToObj(i -> generateLottoNumber())
                 .collect(Collectors.toList());
     }
-    
+
     public List<Integer> generateLottoNumber() {
         List<Integer> uniqueNumbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
         Collections.sort(uniqueNumbers);
