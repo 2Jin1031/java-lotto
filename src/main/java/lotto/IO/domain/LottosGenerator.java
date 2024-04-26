@@ -16,7 +16,7 @@ public class LottosGenerator {
 
     private List<List<Integer>> generateLottos(Quantity quantity) {
         List<List<Integer>> lottos = new ArrayList<>();
-        int numLottos = quantity.getQuantity();
+        int numLottos = quantity.getNumber();
         for (int i = 0; i < numLottos; i++) {
             lottos.add(generateLottoNumber());
         }

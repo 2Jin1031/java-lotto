@@ -5,11 +5,11 @@ import lotto.IO.output.OutputService;
 
 public class Quantity {
 
-    private final int quantity;
+    private final int number;
 
     public Quantity(int number) {
         validate(number);
-        this.quantity = (number) / 1000;
+        this.number = (number) / 1000;
     }
 
     private void validate(int number) {
@@ -29,11 +29,11 @@ public class Quantity {
         }
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getNumber() {
+        return number;
     }
 
     public void printInfo() {
-        OutputService.printPurchaseInfo(quantity);
+        OutputService.printPurchaseInfo(number);
     }
 }
