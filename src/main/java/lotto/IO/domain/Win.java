@@ -27,7 +27,9 @@ public class Win {
     }
 
     private int countMatches(List<Integer> wins, List<Integer> lotto) {
-        return (int) lotto.stream().filter(wins::contains).count();
+        return (int) lotto.stream()
+                .filter(wins::contains)
+                .count();
     }
 
     private int countBonus(int bonus, List<Integer> lotto) {
