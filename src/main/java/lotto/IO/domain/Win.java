@@ -2,6 +2,7 @@ package lotto.IO.domain;
 
 import lotto.IO.output.OutputService;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -13,9 +14,8 @@ public class Win {
 
     public Win(int lottoSize) {
         this.lottoSize = lottoSize;
-        this.correctCounts = new ArrayList<>(8);
+        this.correctCounts = new ArrayList<>(Collections.nCopies(8, 0));
         this.winPrices = List.of(0, 0, 0, 5000, 50000, 1500000, 30000000, 2000000000);
-        IntStream.range(0, 8).forEach(i -> correctCounts.add(0));
     }
 
     public void countCorrects(List<Integer> wins, int bonus, List<List<Integer>> lottos) {
