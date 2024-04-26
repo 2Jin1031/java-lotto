@@ -6,6 +6,7 @@ import lotto.IO.appConfig.PromptConstants;
 import lotto.IO.domain.Bonus;
 import lotto.IO.domain.Lotto;
 import lotto.IO.domain.LottoTicket;
+import java.util.function.Supplier;
 
 public class InputView {
 
@@ -45,10 +46,5 @@ public class InputView {
                 printer.error(e.getMessage());
             }
         }
-    }
-
-    @FunctionalInterface
-    private interface Supplier<T> {
-        T get() throws IllegalArgumentException;
     }
 }
