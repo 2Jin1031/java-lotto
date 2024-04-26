@@ -5,6 +5,8 @@ import lotto.IO.output.OutputService;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Lottos {
 
@@ -15,12 +17,10 @@ public class Lottos {
     }
 
     private List<List<Integer>> generateLottos(Quantity quantity) {
-        List<List<Integer>> lottos = new ArrayList<>();
         int numLottos = quantity.getNumber();
-        for (int i = 0; i < numLottos; i++) {
-            lottos.add(generateLottoNumber());
-        }
-        return lottos;
+        return IntStream.range(0, numLottos)
+                .mapToObj(i -> generateLottoNumber())
+                .collect(Collectors.toList());
     }
     public List<Integer> generateLottoNumber() {
         List<Integer> uniqueNumbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
