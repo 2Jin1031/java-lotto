@@ -7,7 +7,7 @@ import lotto.IO.domain.Bonus;
 import lotto.IO.domain.Lotto;
 import lotto.IO.domain.LottoTicket;
 
-public class InputValidator {
+public class InputView {
 
     private final static MessagePrinter printer = new ConsoleMessagePrinter();
 

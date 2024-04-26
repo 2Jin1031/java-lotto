@@ -1,31 +1,31 @@
 package lotto;
 
-import lotto.IO.input.InputValidator;
+import lotto.IO.input.InputView;
 import lotto.IO.domain.*;
 import lotto.IO.domain.Win;
 
 public class LottoGame {
 
     public void process() {
-        LottoTicket lottoTicket = InputValidator.getValidLottoTicket();
+        LottoTicket lottoTicket = InputView.getValidLottoTicket();
         Quantity quantity = new Quantity(lottoTicket.getLottoPrice());
-        LottosGenerator lottosGenerator = new LottosGenerator(quantity);
-        printLottoInformation(quantity, lottosGenerator);
+        Lottos lottos = new Lottos(quantity);
+        printLottoInformation(quantity, lottos);
 
-        Lotto lotto = InputValidator.getValidLotto();
-        Bonus bonus = InputValidator.getValidBonus(lotto);
+        Lotto lotto = InputView.getValidLotto();
+        Bonus bonus = InputView.getValidBonus(lotto);
 
-        processWinning(lottoTicket, quantity, lotto, bonus, lottosGenerator);
+        processWinning(lottoTicket, quantity, lotto, bonus, lottos);
     }
 
-    private void printLottoInformation(Quantity quantity, LottosGenerator lottosGenerator) {
+    private void printLottoInformation(Quantity quantity, Lottos lottos) {
         quantity.printInfo();
-        lottosGenerator.print();
+        lottos.print();
     }
 
-    private void processWinning(LottoTicket lottoTicket, Quantity quantity, Lotto lotto, Bonus bonus, LottosGenerator lottosGenerator) {
+    private void processWinning(LottoTicket lottoTicket, Quantity quantity, Lotto lotto, Bonus bonus, Lottos lottos) {
         Win win = new Win(quantity.getNumber());
-        win.countCorrects(lotto.getNumbers(), bonus.getBonus(), lottosGenerator.getLottoNumbers());
+        win.countCorrects(lotto.getNumbers(), bonus.getBonus(), lottos.getLottoNumbers());
         win.print();
         calculateRewards(lottoTicket, win);
     }

@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class LottosGenerator {
+public class Lottos {
 
     private final List<List<Integer>> lottoNumbers;
 
-    public LottosGenerator(Quantity quantity) {
+    public Lottos(Quantity quantity) {
         this.lottoNumbers = generateLottos(quantity);
     }
 
