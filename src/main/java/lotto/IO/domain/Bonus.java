@@ -19,7 +19,7 @@ public class Bonus {
     }
 
     private void numberRangeCheck(int bonus) {
-        if (bonus < ConfigConstants.LOTTO_MIN_NUMBER || bonus > ConfigConstants.LOTTO_MAX_NUMBER) {
+        if (ConfigConstants.LOTTO_MIN_NUMBER > bonus || bonus > ConfigConstants.LOTTO_MAX_NUMBER) {
             throw new IllegalArgumentException(PromptConstants.BONUS_RANGE_ERROR);
         }
     }
