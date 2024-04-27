@@ -1,10 +1,9 @@
 package lotto.IO.domain;
 
-import lotto.IO.output.OutputService;
+import lotto.IO.inputOutput.OutputService;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class Win {
 

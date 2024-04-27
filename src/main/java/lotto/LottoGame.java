@@ -1,6 +1,6 @@
 package lotto;
 
-import lotto.IO.input.InputView;
+import lotto.IO.inputOutput.InputView;
 import lotto.IO.domain.*;
 import lotto.IO.domain.Win;
 

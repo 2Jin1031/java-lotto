@@ -1,8 +1,8 @@
 package lotto.IO.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import lotto.IO.output.OutputService;
-import java.util.ArrayList;
+import lotto.IO.inputOutput.OutputService;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;

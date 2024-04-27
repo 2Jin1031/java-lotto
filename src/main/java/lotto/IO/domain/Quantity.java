@@ -1,7 +1,7 @@
 package lotto.IO.domain;
 
 import lotto.IO.appConfig.PromptConstants;
-import lotto.IO.output.OutputService;
+import lotto.IO.inputOutput.OutputService;
 
 public class Quantity {
 

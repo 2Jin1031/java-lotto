@@ -1,4 +1,4 @@
-package lotto.IO.input;
+package lotto.IO.inputOutput;
 
 import lotto.IO.appConfig.Console;
 import lotto.IO.appConfig.ConfigConstants;

@@ -1,4 +1,4 @@
-package lotto.IO.output;
+package lotto.IO.inputOutput;
 
 import java.text.NumberFormat;
 import java.util.List;
