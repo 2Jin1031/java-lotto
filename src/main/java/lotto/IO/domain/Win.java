@@ -8,7 +8,7 @@ public class Win {
 
     private final Map<Rank, Integer> correctCounts;
 
-    public Win(int lottoSize) {
+    public Win() {
         Map<Rank, Integer> correctCounts = new HashMap<>();
         for (Rank rank : Rank.values()) {
             correctCounts.put(rank, 0);

@@ -15,7 +15,7 @@ public class LottoGame {
         Lotto lotto = InputView.getValidLotto();
         Bonus bonus = InputView.getValidBonus(lotto);
 
-        processWinning(lottoTicket, quantity, lotto, bonus, lottos);
+        processWinning(lottoTicket, lotto, bonus, lottos);
     }
 
     private void printLottoInformation(Quantity quantity, Lottos lottos) {
@@ -23,8 +23,8 @@ public class LottoGame {
         lottos.print();
     }
 
-    private void processWinning(LottoTicket lottoTicket, Quantity quantity, Lotto lotto, Bonus bonus, Lottos lottos) {
-        Win win = new Win(quantity.getNumber());
+    private void processWinning(LottoTicket lottoTicket, Lotto lotto, Bonus bonus, Lottos lottos) {
+        Win win = new Win();
         win.countCorrects(lotto.getNumbers(), bonus.getBonus(), lottos.getLottoNumbers());
         win.print();
         calculateRewards(lottoTicket, win);
