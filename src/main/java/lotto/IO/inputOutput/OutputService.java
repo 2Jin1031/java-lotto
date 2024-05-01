@@ -41,8 +41,8 @@ public class OutputService {
         System.out.println("---");
         correctCounts.forEach((rank, count) -> {
                 if (rank != Rank.NONE) {
-                    System.out.println(rank.getMatchCount() + "개 일치 "
-                            + (rank.getPrize() == 30000000 ? ", 보너스 볼 일치" : "")
+                    System.out.println(rank.getMatchCount() + "개 일치"
+                            + (rank.getPrize() == 30000000 ? ", 보너스 볼 일치 " : " ")
                             + "(" + numberFormat.format(rank.getPrize()) + "원) - "
                             + count + "개");
                 };
