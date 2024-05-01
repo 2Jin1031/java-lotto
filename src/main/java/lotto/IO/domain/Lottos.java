@@ -25,9 +25,16 @@ public class Lottos {
 
     public List<Integer> generateLottoNumber() {
         List<Integer> uniqueNumbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
-        Collections.sort(uniqueNumbers);
-        return uniqueNumbers;
+        return sortNumbers(uniqueNumbers);
     }
+
+    private List<Integer> sortNumbers(List<Integer> uniqueNumbers) {
+        return uniqueNumbers.stream()
+                .sorted()
+                .collect(Collectors.toList());
+
+    }
+
 
     public List<List<Integer>> getLottoNumbers() {
         return lottoNumbers;
