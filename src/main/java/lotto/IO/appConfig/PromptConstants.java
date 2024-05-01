@@ -2,9 +2,9 @@ package lotto.IO.appConfig;
 
 public class PromptConstants {
 
-    public static final String INPUT_AMOUNT = "구입금액을 입력해 주세요";
-    public static final String INPUT_LOTTO = "당첨 번호를 입력해 주세요";
-    public static final String INPUT_BONUS = "보너스 번호를 입력해 주세요";
+    public static final String INPUT_AMOUNT = "구입금액을 입력해 주세요.";
+    public static final String INPUT_LOTTO = "당첨 번호를 입력해 주세요.";
+    public static final String INPUT_BONUS = "보너스 번호를 입력해 주세요.";
     public static final String ERROR_PREFIX = "[ERROR] ";
     public static final String LOTTO_RANGE_ERROR = "로또 번호는 1부터 45 사이의 숫자여야 합니다.";
     public static final String LOTTO_SIZE_ERROR = "로또는 6개의 숫자로 이루어져야 합니다.";

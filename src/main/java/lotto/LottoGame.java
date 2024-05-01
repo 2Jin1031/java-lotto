@@ -24,8 +24,7 @@ public class LottoGame {
     }
 
     private void processWinning(LottoTicket lottoTicket, Lotto lotto, Bonus bonus, Lottos lottos) {
-        Win win = new Win();
-        win.countCorrects(lotto.getNumbers(), bonus.getBonus(), lottos.getLottoNumbers());
+        Win win = new Win(lotto.getNumbers(), bonus.getBonus(), lottos.getLottoNumbers());
         win.print();
         calculateRewards(lottoTicket, win);
     }

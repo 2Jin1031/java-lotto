@@ -6,14 +6,15 @@ import java.util.*;
 
 public class Win {
 
-    private final Map<Rank, Integer> correctCounts;
+    private final LinkedHashMap<Rank, Integer> correctCounts;
 
-    public Win() {
-        Map<Rank, Integer> correctCounts = new HashMap<>();
+    // TODO: Win 클래스 수정 필요
+    public Win(List<Integer> wins, int matchBonus, List<List<Integer>> lottos) {
+        this.correctCounts = new LinkedHashMap<>();
         for (Rank rank : Rank.values()) {
-            correctCounts.put(rank, 0);
+            this.correctCounts.put(rank, 0);
         }
-        this.correctCounts = correctCounts;
+        countCorrects(wins, matchBonus, lottos);
     }
 
     public void countCorrects(List<Integer> wins, int matchBonus, List<List<Integer>> lottos) {
@@ -42,7 +43,7 @@ public class Win {
         OutputService.printWinStatistics(correctCounts);
     }
 
-    public Map<Rank, Integer> getCorrectCounts() {
+    public LinkedHashMap<Rank, Integer> getCorrectCounts() {
         return correctCounts;
     }
 }

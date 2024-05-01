@@ -1,20 +1,22 @@
 package lotto.IO.domain;
 
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class Reward {
 
     private final int reward;
 
-    public Reward(Map<Rank, Integer> correctCounts) {
-        Map<Rank, Integer> rankReward = new EnumMap<>(Rank.class);
-        this.reward = IntStream.range(0, correctCounts.size())
-                .mapToObj(i -> rankReward.get(i) * correctCounts.get(i))
-                .mapToInt(Integer::intValue)
-                .sum();
+    // TODO: Reward 클래스 수정 필요
+    public Reward(LinkedHashMap<Rank, Integer> correctCounts) {
+        LinkedHashMap<Rank, Integer> rankMap = Rank.of();
+        int result = 0;
+        for (Rank rank : Rank.values()) {
+            if (rank != Rank.NONE) {
+                result += rankMap.get(rank) * correctCounts.get(rank);
+            }
+        }
+        reward = result;
     }
 
     public int getReward() {

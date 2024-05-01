@@ -1,14 +1,14 @@
 package lotto.IO.domain;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 public enum Rank {
-    FIRST(6, 2000_000_000),
-    SECOND(5, 30_000_000),
-    THIRD(5, 1_500_000),
-    FOURTH(4, 50_000),
     FIFTH(3, 5_000),
-    NONE(-1, -1);
+    FOURTH(4, 50_000),
+    THIRD(5, 1_500_000),
+    SECOND(5, 30_000_000),
+    FIRST(6, 2000_000_000),
+    NONE(0, 0);
 
     private final int matchCount;
     private final int prize;
@@ -19,8 +19,8 @@ public enum Rank {
     }
 
     public static Rank valueof(int matchCount, boolean matchBonus) {
-        if (matchCount == SECOND.matchCount) {
-            return isMatchBouns(matchBonus) ? SECOND : THIRD;
+        if (matchCount == THIRD.matchCount) {
+            return matchBonus ? SECOND : THIRD;
         }
         for (Rank rank : values()) {
             if (rank.matchCount == matchCount) {
@@ -30,19 +30,15 @@ public enum Rank {
         return NONE;
     }
 
-    public static Map<Rank, Integer> of(int i) {
-        return Map.of(
-                FIRST, FIRST.getPrize(),
-                SECOND, SECOND.getPrize(),
-                THIRD, THIRD.getPrize(),
-                FOURTH, FOURTH.getPrize(),
-                FIFTH, FIFTH.getPrize()
-        );
-
-    }
-
-    public static boolean isMatchBouns(boolean matchBonus) {
-        return matchBonus;
+    public static LinkedHashMap of() {
+        LinkedHashMap map = new LinkedHashMap();
+        map.put(NONE, NONE.getPrize());
+        map.put(FIFTH, FIFTH.getPrize());
+        map.put(FOURTH, FOURTH.getPrize());
+        map.put(THIRD, THIRD.getPrize());
+        map.put(SECOND, SECOND.getPrize());
+        map.put(FIRST, FIRST.getPrize());
+        return map;
     }
 
     public int getMatchCount() {

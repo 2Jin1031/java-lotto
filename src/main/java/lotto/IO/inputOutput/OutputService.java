@@ -3,6 +3,7 @@ package lotto.IO.inputOutput;
 import lotto.IO.domain.Rank;
 
 import java.text.NumberFormat;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
@@ -34,14 +35,17 @@ public class OutputService {
         System.out.println("총 수익률은 " + rateFormatted + "%입니다.");
     }
 
-    public static void printWinStatistics(Map<Rank, Integer> correctCounts) {
+    public static void printWinStatistics(LinkedHashMap<Rank, Integer> correctCounts) {
         System.out.println();
         System.out.println("당첨 통계");
         System.out.println("---");
-        correctCounts.forEach((rank, count) ->
-                System.out.println(rank.getMatchCount() + "개 일치"
-                        + (rank.getMatchCount() == 5 ? ", 보너스 볼 일치" : "")
-                        + "(" + numberFormat.format(rank.getPrize()) + "원) - "
-                        + count + "개"));
+        correctCounts.forEach((rank, count) -> {
+                if (rank != Rank.NONE) {
+                    System.out.println(rank.getMatchCount() + "개 일치 "
+                            + (rank.getPrize() == 30000000 ? ", 보너스 볼 일치" : "")
+                            + "(" + numberFormat.format(rank.getPrize()) + "원) - "
+                            + count + "개");
+                };
+        });
     }
 }
