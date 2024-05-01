@@ -7,7 +7,6 @@ public class Reward {
 
     private final int reward;
 
-    // TODO: Reward 클래스 수정 필요
     public Reward(LinkedHashMap<Rank, Integer> correctCounts) {
         LinkedHashMap<Rank, Integer> rankMap = Rank.of();
         int result = 0;

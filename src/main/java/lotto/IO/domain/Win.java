@@ -8,7 +8,6 @@ public class Win {
 
     private final LinkedHashMap<Rank, Integer> correctCounts;
 
-    // TODO: Win 클래스 수정 필요
     public Win(List<Integer> wins, int matchBonus, List<List<Integer>> lottos) {
         this.correctCounts = new LinkedHashMap<>();
         for (Rank rank : Rank.values()) {
