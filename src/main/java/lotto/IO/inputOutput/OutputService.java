@@ -1,7 +1,10 @@
 package lotto.IO.inputOutput;
 
+import lotto.IO.domain.Rank;
+
 import java.text.NumberFormat;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.IntStream;
 
 public class OutputService {
@@ -31,14 +34,14 @@ public class OutputService {
         System.out.println("총 수익률은 " + rateFormatted + "%입니다.");
     }
 
-    public static void printWinStatistics(List<Integer> correctCounts, List<Integer> winPrices) {
+    public static void printWinStatistics(Map<Rank, Integer> correctCounts) {
         System.out.println();
         System.out.println("당첨 통계");
         System.out.println("---");
-        for (int i = 3; i <= 6; i++) {
-            System.out.println(i + "개 일치 (" + numberFormat.format(winPrices.get(i)) + "원) - " + correctCounts.get(i) + "개");
-        }
-        System.out.println("5개 일치, 보너스 볼 일치 (" + numberFormat.format(winPrices.get(6)) + "원) - " + correctCounts.get(7) + "개");
-        System.out.println("6개 일치 (" + numberFormat.format(winPrices.get(7)) + "원) - " + correctCounts.get(6) + "개");
+        correctCounts.forEach((rank, count) ->
+                System.out.println(rank.getMatchCount() + "개 일치"
+                        + (rank.getMatchCount() == 5 ? ", 보너스 볼 일치" : "")
+                        + "(" + numberFormat.format(rank.getPrize()) + "원) - "
+                        + count + "개"));
     }
 }

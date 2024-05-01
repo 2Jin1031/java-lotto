@@ -31,7 +31,7 @@ public class LottoGame {
     }
 
     private void calculateRewards(LottoTicket lottoTicket, Win win) {
-        Reward reward = new Reward(win.getWinPrices(), win.getCorrectCounts());
+        Reward reward = new Reward(win.getCorrectCounts());
         printRateOfReturn(lottoTicket, reward);
     }
 
