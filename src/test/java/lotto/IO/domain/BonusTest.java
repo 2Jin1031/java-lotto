@@ -9,8 +9,7 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BonusTest {
-
-
+    
     @Test
     @DisplayName("보너스 번호가 1부터 45 사이의 숫자가 아니면 예외를 발생시킨다.")
     void bonusRange() {
@@ -25,5 +24,4 @@ class BonusTest {
             assertThrows(IllegalArgumentException.class, () -> new Bonus(bonusNumber, lotto));
         }
     }
-
 }
