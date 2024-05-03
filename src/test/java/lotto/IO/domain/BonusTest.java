@@ -12,7 +12,7 @@ class BonusTest {
 
 
     @Test
-    @DisplayName("보너스 번호가 가능한 범위인지 확인한다.")
+    @DisplayName("보너스 번호가 1부터 45 사이의 숫자가 아니면 예외를 발생시킨다.")
     void bonusRange() {
         //given
         Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
